@@ -1,0 +1,65 @@
+﻿@model NBAScoringBelt.ViewModels.HomeViewModel
+@{
+  ViewBag.Title = "NBA Scoring Belt";
+}
+<div class="row">
+  <div class="col-md-4">
+    <h2>Current Belt Holder</h2>
+    <h3>@Model.CurrentHolder.LeadingScorer <img src="@Url.Content("~/Content/images/teams/" + Model.CurrentHolder.LeadingScorerTeam.ToUpper() + ".gif")" /></h3>
+    <h2>Next Belt Game</h2>
+    <h3><img src="@Url.Content("~/Content/images/teams/" + Model.NextBeltGame.AwayTeam.ToUpper() + ".gif")" /> @Model.NextBeltGame.AwayTeam @@ <img src="@Url.Content("~/Content/images/teams/" + Model.NextBeltGame.HomeTeam.ToUpper() + ".gif")" /> @Model.NextBeltGame.HomeTeam</h3>
+    <h4>@Model.NextBeltGame.GameDate.ToString("yyyy-MM-dd")</h4>
+  </div>
+  <div class="col-md-4">
+    <h2>Rules</h2>
+    <ul>
+      <li>It starts with the first game of last season's NBA scoring champion.</li>
+      <li>The leading scorer of the game takes the belt.</li>
+      <li>If there is a tie for most points, the player with the highest eFG% takes the belt.</li>
+      <li>No playoffs, the race is over after the regular season.</li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h2>About</h2>
+    <p>
+      Idea based on the <a href="http://nbachampionshipbelt.com">NBA Championship Belt</a>
+      <br />
+      Team Logos: <a href="http://nba.com">NBA.com</a>
+      <br />
+      Stats Compiled From: <a href="http://basketball-reference.com">basketball-reference.com</a>
+    </p>
+  </div>
+</div>
+<h2>Game Log</h2>
+<table class="table table-bordered table-striped table-condensed table-responsive">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Home Team</th>
+      <th>Points</th>
+      <th>Away Team</th>
+      <th>Points</th>
+      <th>Leading Scorer</th>
+      <th>Team</th>
+      <th>Points</th>
+      <th>eFG%</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var game in Model.Games)
+    {
+      <tr>
+        <td>@game.GameDate.ToString("yyyy-MM-dd")</td>
+        <td class="@(game.HomeTeamWinner ? "winner" : "loser")"><img src="@Url.Content("~/Content/images/teams/" + game.HomeTeam.ToUpper() + ".gif")" /> @game.HomeTeam</td>
+        <td class="@(game.HomeTeamWinner ? "winner" : "loser")">@game.HomeTeamPoints</td>
+        <td class="@(game.AwayTeamWinner ? "winner" : "loser")"><img src="@Url.Content("~/Content/images/teams/" + game.AwayTeam.ToUpper() + ".gif")" /> @game.AwayTeam</td>
+        <td class="@(game.AwayTeamWinner ? "winner" : "loser")">@game.AwayTeamPoints</td>
+        <td>@game.LeadingScorer</td>
+        <td><img src="@Url.Content("~/Content/images/teams/" + game.LeadingScorerTeam.ToUpper() + ".gif")" /> @game.LeadingScorerTeam</td>
+        <td>@game.LeadingScorerPoints</td>
+        <td>@game.LeadingScorerEFGPercentage</td>
+      </tr>
+    }
+  </tbody>
+</table>
+<p><small>* Denotes that the belt holder was tied and determined by eFG%</small></p>
