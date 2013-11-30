@@ -1,18 +1,19 @@
-Game_Date,Away_Team,Away_Team_Points,Home_Team,Home_Team_Points,Leading_Scorer,Leading_Scorer_Team,Leading_Scorer_Points
-2013-10-30,MIL,83,NYK,90,Carmelo Anthony,NYK,19
-2013-10-31,NYK,81,CHI,82,Carmelo Anthony,NYK,22
-2013-11-03,MIN,109,NYK,100,Kevin Love,MIN,34
-2013-11-04,MIN,92,CLE,93,Kevin Martin,MIN,23
-2013-11-06,GSW,106,MIN,93,Klay Thompson,GSW,30
-2013-11-08,GSW,74,SAS,76,Toney Douglas,GSW,21
-2013-11-09,GSW,90,MEM,108,Zack Randolph,MEM,23
-2013-11-11,MEM,79,IND,95,Paul George,IND,23
-2013-11-15,MIL,77,IND,104,Roy Hibbert,IND,24
-2013-11-16,IND,94,CHI,110,Luol Deng,CHI,23
-2013-11-18,CHA,81,CHI,86,Luol Deng,CHI,21
-2013-11-21,CHI,87,DEN,97,Derrick Rose,CHI,19
-2013-11-22,CHI,95,POR,98,Wesley Matthews,POR,28
-2013-11-23,POR,113,GSW,101,Klay Thompson,GSW,30
-2013-11-26,GSW,102,NOP,101,Klay Thompson,GSW,22
-2013-11-27,GSW,99,DAL,103,Stephen Curry,GSW,29
-2013-11-29,GSW,,OKC,,,,
+﻿Game_Date,Away_Team,Away_Team_Points,Home_Team,Home_Team_Points,Leading_Scorer,Leading_Scorer_Team,Leading_Scorer_Points,Leading_Scorer_EFG
+2013-10-30,MIL,83,NYK,90,Carmelo Anthony,NYK,19,.438
+2013-10-31,NYK,81,CHI,82,Carmelo Anthony,NYK,22,.375
+2013-11-03,MIN,109,NYK,100,Kevin Love,MIN,34,.579
+2013-11-04,MIN,92,CLE,93,Kevin Martin,MIN,23,.594
+2013-11-06,GSW,106,MIN,93,Klay Thompson,GSW,30,.686
+2013-11-08,GSW,74,SAS,76,Toney Douglas,GSW,21,.750
+2013-11-09,GSW,90,MEM,108,Zack Randolph,MEM,23,.474
+2013-11-11,MEM,79,IND,95,Paul George,IND,23,.563
+2013-11-15,MIL,77,IND,104,Roy Hibbert,IND,24,.888
+2013-11-16,IND,94,CHI,110,Luol Deng,CHI,23,.607
+2013-11-18,CHA,81,CHI,86,Luol Deng,CHI,21,.550
+2013-11-21,CHI,87,DEN,97,Derrick Rose,CHI,19,.475
+2013-11-22,CHI,95,POR,98,Wesley Matthews,POR,28,.737
+2013-11-23,POR,113,GSW,101,Klay Thompson*,GSW,30,.846
+2013-11-26,GSW,102,NOP,101,Klay Thompson,GSW,22,.528
+2013-11-27,GSW,99,DAL,103,Stephen Curry,GSW,29,.632
+2013-11-29,GSW,112,OKC,113,Russell Westbrook,OKC,34,.440
+2013-12-01,MIN,,OKC,,,,,
