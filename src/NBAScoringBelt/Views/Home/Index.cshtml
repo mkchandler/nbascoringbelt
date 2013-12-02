@@ -35,14 +35,14 @@
   <thead>
     <tr>
       <th>Date</th>
-      <th>Home Team</th>
-      <th>Points</th>
-      <th>Away Team</th>
-      <th>Points</th>
       <th>Leading Scorer</th>
       <th>Team</th>
       <th>Points</th>
       <th>eFG%</th>
+      <th>Home Team</th>
+      <th>Points</th>
+      <th>Away Team</th>
+      <th>Points</th>
     </tr>
   </thead>
   <tbody>
@@ -50,14 +50,14 @@
     {
       <tr>
         <td>@game.GameDate.ToString("yyyy-MM-dd")</td>
-        <td class="@(game.HomeTeamWinner ? "winner" : "loser")"><img src="@Url.Content("~/Content/images/teams/" + game.HomeTeam.ToUpper() + ".gif")" /> @game.HomeTeam</td>
-        <td class="@(game.HomeTeamWinner ? "winner" : "loser")">@game.HomeTeamPoints</td>
-        <td class="@(game.AwayTeamWinner ? "winner" : "loser")"><img src="@Url.Content("~/Content/images/teams/" + game.AwayTeam.ToUpper() + ".gif")" /> @game.AwayTeam</td>
-        <td class="@(game.AwayTeamWinner ? "winner" : "loser")">@game.AwayTeamPoints</td>
         <td>@game.LeadingScorer</td>
         <td><img src="@Url.Content("~/Content/images/teams/" + game.LeadingScorerTeam.ToUpper() + ".gif")" /> @game.LeadingScorerTeam</td>
         <td>@game.LeadingScorerPoints</td>
         <td>@game.LeadingScorerEFGPercentage</td>
+        <td class="@(game.HomeTeamWinner ? "winner" : "loser")">@game.HomeTeam</td>
+        <td class="@(game.HomeTeamWinner ? "winner" : "loser")">@game.HomeTeamPoints</td>
+        <td class="@(game.AwayTeamWinner ? "winner" : "loser")">@game.AwayTeam</td>
+        <td class="@(game.AwayTeamWinner ? "winner" : "loser")">@game.AwayTeamPoints</td>
       </tr>
     }
   </tbody>
