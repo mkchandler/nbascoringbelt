@@ -30,36 +30,98 @@
     </p>
   </div>
 </div>
-<h2>Game Log</h2>
-<table class="table table-bordered table-striped table-condensed table-responsive">
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Leading Scorer</th>
-      <th>Team</th>
-      <th>Points</th>
-      <th>eFG%</th>
-      <th>Home Team</th>
-      <th>Points</th>
-      <th>Away Team</th>
-      <th>Points</th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach (var game in Model.Games)
-    {
-      <tr>
-        <td>@game.GameDate.ToString("yyyy-MM-dd")</td>
-        <td>@game.LeadingScorer</td>
-        <td><img src="@Url.Content("~/Content/images/teams/" + game.LeadingScorerTeam.ToUpper() + ".gif")" /> @game.LeadingScorerTeam</td>
-        <td>@game.LeadingScorerPoints</td>
-        <td>@game.LeadingScorerEFGPercentage</td>
-        <td class="@(game.HomeTeamWinner ? "winner" : "loser")">@game.HomeTeam</td>
-        <td class="@(game.HomeTeamWinner ? "winner" : "loser")">@game.HomeTeamPoints</td>
-        <td class="@(game.AwayTeamWinner ? "winner" : "loser")">@game.AwayTeam</td>
-        <td class="@(game.AwayTeamWinner ? "winner" : "loser")">@game.AwayTeamPoints</td>
-      </tr>
-    }
-  </tbody>
-</table>
-<p><small>* Denotes that the belt holder was tied and determined by eFG%</small></p>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Top 5 Belt Holders</h3>
+      </div>
+      <div class="panel-body">
+        <table class="table table-striped table-condensed">
+          <thead>
+            <tr>
+              <th>Player</th>
+              <th>Belts</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach (var player in Model.BeltHolderStats)
+            {
+              <tr>
+                <td><img src="@Url.Content("~/Content/images/teams/" + player.TeamName.ToUpper() + ".gif")" /> @player.PlayerName</td>
+                <td>@player.BeltsHeld</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Top 5 Teams</h3>
+      </div>
+      <div class="panel-body">
+        <table class="table table-striped table-condensed">
+          <thead>
+            <tr>
+              <th>Team</th>
+              <th>Belts</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach (var team in Model.TeamStats)
+            {
+              <tr>
+                <td><img src="@Url.Content("~/Content/images/teams/" + team.TeamName.ToUpper() + ".gif")" /> @team.TeamName</td>
+                <td>@team.BeltWinners</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Game Log</h3>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-striped table-condensed">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Leading Scorer</th>
+            <th>Team</th>
+            <th>Points</th>
+            <th>eFG%</th>
+            <th>Home Team</th>
+            <th>Points</th>
+            <th>Away Team</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach (var game in Model.Games)
+          {
+            <tr>
+              <td>@game.GameDate.ToString("yyyy-MM-dd")</td>
+              <td>@game.LeadingScorer</td>
+              <td><img src="@Url.Content("~/Content/images/teams/" + game.LeadingScorerTeam.ToUpper() + ".gif")" /> @game.LeadingScorerTeam</td>
+              <td>@game.LeadingScorerPoints</td>
+              <td>@game.LeadingScorerEFGPercentage</td>
+              <td class="@(game.HomeTeamWinner ? "winner" : "loser")">@game.HomeTeam</td>
+              <td class="@(game.HomeTeamWinner ? "winner" : "loser")">@game.HomeTeamPoints</td>
+              <td class="@(game.AwayTeamWinner ? "winner" : "loser")">@game.AwayTeam</td>
+              <td class="@(game.AwayTeamWinner ? "winner" : "loser")">@game.AwayTeamPoints</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    <p><small>* Denotes that the belt holder was tied and determined by eFG%</small></p>
+  </div>
+</div>
