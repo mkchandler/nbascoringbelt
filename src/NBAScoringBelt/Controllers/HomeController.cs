@@ -13,7 +13,7 @@ namespace NBAScoringBelt.Controllers
         public ActionResult Index()
         {
             // Read in all of the year's games from the data set
-            var lines = System.IO.File.ReadAllLines(HttpContext.Server.MapPath("~/App_Data/2013.csv"));
+            var lines = System.IO.File.ReadAllLines(HttpContext.Server.MapPath("~/App_Data/scoring-belt-2014-2015.csv"));
             var games = new List<Game>();
 
             int i = 0;

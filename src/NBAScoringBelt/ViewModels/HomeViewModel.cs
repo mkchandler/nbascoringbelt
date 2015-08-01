@@ -22,6 +22,14 @@ namespace NBAScoringBelt.ViewModels
             }
         }
 
+        public bool IsEndOfSeason
+        {
+            get
+            {
+                return NextBeltGame == null;
+            }
+        }
+
         public Game NextBeltGame
         {
             get

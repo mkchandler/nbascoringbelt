@@ -4,11 +4,19 @@
 }
 <div class="row">
   <div class="col-md-4">
+    @if (Model.IsEndOfSeason)
+    {
+    <h2>Scoring Belt Holder</h2>
+    <h3>@Model.CurrentHolder.LeadingScorer <img src="@Url.Content("~/Content/images/teams/" + Model.CurrentHolder.LeadingScorerTeam.ToUpper() + ".gif")" /></h3>
+    }
+    else 
+    {
     <h2>Current Belt Holder</h2>
     <h3>@Model.CurrentHolder.LeadingScorer <img src="@Url.Content("~/Content/images/teams/" + Model.CurrentHolder.LeadingScorerTeam.ToUpper() + ".gif")" /></h3>
     <h2>Next Belt Game</h2>
     <h3><img src="@Url.Content("~/Content/images/teams/" + Model.NextBeltGame.AwayTeam.ToUpper() + ".gif")" /> @Model.NextBeltGame.AwayTeam @@ <img src="@Url.Content("~/Content/images/teams/" + Model.NextBeltGame.HomeTeam.ToUpper() + ".gif")" /> @Model.NextBeltGame.HomeTeam</h3>
     <h4>@Model.NextBeltGame.GameDate.ToString("yyyy-MM-dd")</h4>
+    }
   </div>
   <div class="col-md-4">
     <h2>Rules</h2>
@@ -25,8 +33,6 @@
       Idea based on the <a href="http://nbachampionshipbelt.com">NBA Championship Belt</a>
       <br />
       Team Logos: <a href="http://nba.com">NBA.com</a>
-      <br />
-      Stats Compiled From: <a href="http://basketball-reference.com">basketball-reference.com</a>
     </p>
   </div>
 </div>
