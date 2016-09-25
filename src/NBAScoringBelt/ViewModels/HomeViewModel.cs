@@ -7,11 +7,18 @@ namespace NBAScoringBelt.ViewModels
 {
     public class HomeViewModel
     {
-        public HomeViewModel(IEnumerable<Game> games, IEnumerable<Player> beltHolderStats, IEnumerable<Team> teamStats)
+        public HomeViewModel(int year, IEnumerable<Game> games, IEnumerable<Player> beltHolderStats, IEnumerable<Team> teamStats)
         {
+            Year = year;
             _games = games;
             _beltHolderStats = beltHolderStats;
             _teamStats = teamStats;
+        }
+
+        public int Year
+        {
+            get;
+            set;
         }
 
         public Game CurrentHolder

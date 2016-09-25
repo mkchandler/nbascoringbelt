@@ -2,11 +2,11 @@
 @{
   ViewBag.Title = "NBA Scoring Belt";
 }
-<div class="row">
-  <div class="col-md-4">
+<div class="row test">
+  <div class="col-md-6">
     @if (Model.IsEndOfSeason)
     {
-    <h2>Scoring Belt Holder</h2>
+    <h2>@Model.Year Scoring Belt Winner</h2>
     <h3>@Model.CurrentHolder.LeadingScorer <img src="@Url.Content("~/Content/images/teams/" + Model.CurrentHolder.LeadingScorerTeam.ToUpper() + ".gif")" /></h3>
     }
     else 
@@ -18,7 +18,7 @@
     <h4>@Model.NextBeltGame.GameDate.ToString("yyyy-MM-dd")</h4>
     }
   </div>
-  <div class="col-md-4">
+  <div class="col-md-6">
     <h2>Rules</h2>
     <ul>
       <li>It starts with the first game of last season's NBA scoring champion.</li>
@@ -26,14 +26,6 @@
       <li>Tie breaker: Points --> EFG% --> TS%</li>
       <li>No playoffs, the race is over after the regular season.</li>
     </ul>
-  </div>
-  <div class="col-md-4">
-    <h2>About</h2>
-    <p>
-      Idea based on the <a href="http://nbachampionshipbelt.com">NBA Championship Belt</a>
-      <br />
-      Team Logos: <a href="http://nba.com">NBA.com</a>
-    </p>
   </div>
 </div>
 <div class="row">

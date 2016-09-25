@@ -24,6 +24,14 @@ nav ul li {
   padding-right: 15px;
 }
 
+.test {
+  text-align: center;
+}
+
+.test ul {
+  list-style-position: inside;
+}
+
 td {
   vertical-align: middle !important;
 }

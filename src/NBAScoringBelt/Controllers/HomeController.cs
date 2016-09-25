@@ -43,7 +43,7 @@ namespace NBAScoringBelt.Controllers
             // Calculate the team stats
             var teamStats = CalculateTeamStats(games);
 
-            return new HomeViewModel(games, playerStats, teamStats);
+            return new HomeViewModel(year, games, playerStats, teamStats);
         }
 
         private IEnumerable<Player> CalculatePlayerStats(IEnumerable<Game> games)
