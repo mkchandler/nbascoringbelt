@@ -10,6 +10,12 @@ namespace NBAScoringBelt
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Year",
+                url: "{year}",
+                defaults: new { controller = "Home", action = "Year" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
