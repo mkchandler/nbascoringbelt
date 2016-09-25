@@ -37,7 +37,7 @@ namespace NBAScoringBelt.Cmd
             JObject jObject = JObject.Parse(gameData);
             var allPlayers = new List<PlayerGameStats>();
 
-            foreach (var playerStatsJson in jObject["resultSets"][4]["rowSet"].ToList())
+            foreach (var playerStatsJson in jObject["resultSets"][0]["rowSet"].ToList())
             {
                 var values = playerStatsJson.Values().ToArray();
                 var playerStats = new PlayerGameStats();
@@ -73,9 +73,10 @@ namespace NBAScoringBelt.Cmd
             {
                 // Download the file if we don't already have it
                 var httpClient = new HttpClient();
-                httpClient.BaseAddress = new Uri("http://stats.nba.com/stats/");
+                var request = new HttpRequestMessage(HttpMethod.Get, new Uri(string.Format("http://stats.nba.com/stats/boxscoretraditionalV2?GameID={0}&RangeType=0&StartPeriod=0&EndPeriod=0&StartRange=0&EndRange=0", gameId)));
+                //request.Headers.Referrer = new Uri("http://stats.nba.com/scores/");
 
-                var response = await httpClient.GetAsync(string.Format("boxscore?GameID={0}&RangeType=0&StartPeriod=0&EndPeriod=0&StartRange=0&EndRange=0", gameId)).ConfigureAwait(false);
+                var response = await httpClient.SendAsync(request).ConfigureAwait(false);//.GetAsync(string.Format("boxscoresummaryV2?GameID={0}&RangeType=0&StartPeriod=0&EndPeriod=0&StartRange=0&EndRange=0", gameId)).ConfigureAwait(false);
                 var responseString = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
                 await WriteFileAsync(filePath, responseString);
@@ -97,9 +98,10 @@ namespace NBAScoringBelt.Cmd
             {
                 // Download the file if we don't already have it
                 var httpClient = new HttpClient();
-                httpClient.BaseAddress = new Uri("http://stats.nba.com/stats/");
+                var request = new HttpRequestMessage(HttpMethod.Get, new Uri(string.Format("http://stats.nba.com/stats/scoreboardV2?LeagueID=00&gameDate={0}&DayOffset=0", date.ToString("M/d/yyyy"))));
+                request.Headers.Referrer = new Uri("http://stats.nba.com/scores/");
 
-                var response = await httpClient.GetAsync(string.Format("scoreboard?LeagueID=00&gameDate={0}&DayOffset=0", date.ToString("M/d/yyyy"))).ConfigureAwait(false);
+                var response = await httpClient.SendAsync(request).ConfigureAwait(false);//.GetAsync(string.Format("scoreboard?LeagueID=00&gameDate={0}&DayOffset=0", date.ToString("M/d/yyyy"))).ConfigureAwait(false);
                 var responseString = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
                 await WriteFileAsync(filePath, responseString);

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using NBAScoringBelt.Models;
 using NBAScoringBelt.ViewModels;
@@ -13,7 +12,7 @@ namespace NBAScoringBelt.Controllers
         public ActionResult Index()
         {
             // Read in all of the year's games from the data set
-            var lines = System.IO.File.ReadAllLines(HttpContext.Server.MapPath("~/App_Data/scoring-belt-2014-2015.csv"));
+            var lines = System.IO.File.ReadAllLines(HttpContext.Server.MapPath("~/App_Data/scoring-belt-2015-2016.csv"));
             var games = new List<Game>();
 
             int i = 0;
