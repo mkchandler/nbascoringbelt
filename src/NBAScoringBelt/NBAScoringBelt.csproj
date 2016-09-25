@@ -132,11 +132,13 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.yeti.min.css" />
     <Content Include="Content\images\teams\AND.gif" />
     <Content Include="Content\images\teams\ATL.gif" />
     <Content Include="Content\images\teams\BKN.gif" />
     <Content Include="Content\images\teams\BLB.gif" />
     <Content Include="Content\images\teams\BOS.gif" />
+    <Content Include="Content\images\teams\BRK.gif" />
     <Content Include="Content\images\teams\CHA.gif" />
     <Content Include="Content\images\teams\CHI.gif" />
     <Content Include="Content\images\teams\CHS.gif" />
