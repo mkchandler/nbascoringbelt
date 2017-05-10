@@ -10,7 +10,7 @@ namespace NBAScoringBelt.Controllers
     {
         public ActionResult Index()
         {
-            return View(GenerateViewForYear(2016));
+            return View(GenerateViewForYear(2017));
         }
 
         public ActionResult Year(int year)

@@ -9,13 +9,13 @@ namespace NBAScoringBelt.Cmd
         {
             var currentBeltHolder = new PlayerGameStats()
             {
-                PlayerName = "Russell Westbrook",
-                PlayerTeam = "OKC"
+                PlayerName = "Stephen Curry",
+                PlayerTeam = "GSW"
             };
 
             // Load the schedule
-            string resultsPath = "data/scoring-belt-2015-2016.csv";
-            var lines = System.IO.File.ReadAllLines("data/schedule-2015-2016.csv");
+            string resultsPath = "data/scoring-belt-2016-2017.csv";
+            var lines = System.IO.File.ReadAllLines("data/schedule-2016-2017.csv");
             var schedule = new List<Schedule>();
 
             int i = 0;
